@@ -10,7 +10,7 @@ import {
   Avatar,
 } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
@@ -21,15 +21,16 @@ const useStyles = makeStyles({
     marginLeft: -12,
     marginRight: 20,
   },
-});
+  appBarSpacer: theme.mixins.toolbar
+}));
 
 export default function Header() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar position="fixed">
         <Toolbar>          
-          <Typography variant="title" color="inherit" className={classes.flex}>
+          <Typography variant="body1" color="inherit" className={classes.flex}>
             Alfred
           </Typography>
           <IconButton
@@ -40,7 +41,8 @@ export default function Header() {
             <Avatar alt="Alfred" src={Alfred} />
           </IconButton>
         </Toolbar>
-      </AppBar>
+      </AppBar>      
+      <div className={classes.appBarSpacer}></div>
     </div>
   );
 }
