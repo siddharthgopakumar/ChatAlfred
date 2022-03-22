@@ -63,7 +63,7 @@ export default function MessageLeft(props) {
   const classes = useStyles();
   return (
     <>
-      <div className={classes.messageRow}>        
+      <div className={classes.messageRow} ref={props.messagesEndRef}>        
         <div>
           <div className={classes.messageBlue}>
             <div>
